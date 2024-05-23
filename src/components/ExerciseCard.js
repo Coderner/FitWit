@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom'
 import {Button, Stack, Typography} from '@mui/material'
 
 const ExerciseCard = ({exercise}) => {
-  const id =1;
   return (
-    <Link to={`/exercise/${id}`} className='exercise-card'>
+    <Link to={`/exercise/${exercise.id}`} className='exercise-card'>
         <img src={exercise.gifUrl} alt={exercise.name} loading='lazy'/>
         <Stack direction="row">
             <Button sx={{ml:"21px", color:"#fff", backgroundColor:"#ffa9a9", fontSize:"14px", borderRadius:"21px"}}>

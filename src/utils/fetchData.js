@@ -47,3 +47,19 @@ export const fetchByBodyPart = async({bodyPart}) => {
         console.error(error);
     }
 }
+
+export const fetchExerciseById = async({id}) => {
+    try {
+        const response = await axios.request({
+            method: 'GET',
+            url: `https://exercisedb.p.rapidapi.com/exercises/exercise/${id}`,
+            headers: {
+              'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
+              'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+            }
+        })
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+}
