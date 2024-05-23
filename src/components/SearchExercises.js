@@ -17,17 +17,17 @@ const SearchExercises = ({setExercises,bodyPart,setBodyPart}) => {
   },[])
 
   const handleSearch = async() => {
+      console.log(search);
       if(search){
         const exercisesData = await fetchExerciseData();
         console.log(exercisesData);
-        const searchedExercises = exercisesData.filter(
-            (exercise)=>{
+        const searchedExercises = exercisesData.filter((exercise)=>(
                 exercise?.name?.toLowerCase().includes(search)||
                 exercise?.bodyPart?.toLowerCase().includes(search)||
                 exercise?.equipment?.toLowerCase().includes(search)||
                 exercise?.target?.toLowerCase().includes(search)
-            }
-        )
+        ))
+        console.log(searchedExercises);
         setSearch('');
         setExercises(searchedExercises);
       }
