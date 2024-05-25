@@ -63,3 +63,22 @@ export const fetchExerciseById = async({id}) => {
         console.error(error);
     }
 }
+
+export const fetchYtVideos = async(querry) => {
+      try {
+          const response = await axios.request( {
+            method: 'GET',
+            url: `https://youtube-search-and-download.p.rapidapi.com/search`,
+            params: {
+                query: querry
+            },
+            headers: {
+              'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
+              'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
+            }
+          });
+          return response.data;
+      } catch (error) {
+          console.error(error);
+      }
+}
